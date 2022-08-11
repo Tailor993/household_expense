@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Service;
+use Auth;
 
 class ServicesController extends Controller
 {
@@ -11,12 +12,14 @@ class ServicesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('VerifyCsrfToken');
     }
 
     public function showUserRelatedServices()
     {
-        $services = Service::all();
+
+        $services = [];
+        $services = Service::where('user_id', Auth::id())->get();
+        
         return view('services.showUserRelatedServices', ['services' => $services]);
     }
 
@@ -27,15 +30,16 @@ class ServicesController extends Controller
     public function checkAndSaveNewUserRelatedServices(Request $request){
         
         if( 
-            ServicesController::ParameterExsistAndLengthValid( $request->post('name_of_service') )
-            && ServicesController::ParameterExsistAndLengthValid( $request->post('price_per_unit_type') )
-            && ServicesController::ParameterExsistAndGreaterNumberThen0( $request->post('price') ) 
+            Controller::ParameterExsistAndLengthValid( $request->post('name_of_service') )
+            && Controller::ParameterExsistAndLengthValid( $request->post('price_per_unit_type') )
+            && Controller::ParameterExsistAndGreaterNumberThen0( $request->post('price') ) 
         ){
             $service = new Service;
 
             $service->name_of_service = $request->post('name_of_service');
             $service->price_per_unit_type = $request->post('price_per_unit_type');
             $service->price_per_unit = $request->post('price');
+            $service->user_id = Auth::id();
 
             $service->multiplication_required = false;
 
@@ -44,27 +48,11 @@ class ServicesController extends Controller
             }
         
             $service->save();
-
-            return view('services.showUserRelatedServices');
+            return redirect(url('/').'/services');
 
         }else{
-            return view('services.showServiceAdditionFrom');
+            return redirect(url('/').'/services/add');
         }
     }
 
-    static private function ParameterExsistAndGreaterNumberThen0( $parameterWichShouldBeChecked ){
-        if(  isset( $parameterWichShouldBeChecked ) && is_numeric( $parameterWichShouldBeChecked )   ){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    static private function ParameterExsistAndLengthValid( $parameterWichShouldBeChecked ){
-        if(  isset( $parameterWichShouldBeChecked ) && strlen( $parameterWichShouldBeChecked ) > 0  ){
-            return true;
-        }else{
-            return false;
-        }
-    }
 }

@@ -13,11 +13,9 @@ return [
     |
     */
 
-    'dashboard' => 'Dashboard',
-    'services' => 'Services',
-    'measurers' => 'Measurers',
-    'measurments' => 'Measurements',
-    'manage' => 'Manage',
-    'add' => 'Add',
+    'measurer_id' => 'Measurer ID',
+    'consumed' => 'Consumed',
+    'select_measurer' => 'Select Measurer',
+
 
 ];

@@ -30,11 +30,26 @@
         <a href="{{ url('/') }}/home">
             {{ __('menu.dashboard') }}
         </a>
+        <hr>
         <a href="{{ url('/') }}/services">
             {{ __('menu.services') }}
         </a>
         <a href="{{ url('/') }}/services/add">
         {{ __('menu.add') }} {{ __('menu.services') }}
+        </a>
+        <hr>
+        <a href="{{ url('/') }}/measurers">
+            {{ __('menu.measurers') }}
+        </a>
+        <a href="{{ url('/') }}/measurers/add">
+        {{ __('menu.add') }} {{ __('menu.measurers') }}
+        </a>
+        <hr>
+        <a href="{{ url('/') }}/measurments">
+            {{ __('menu.measurments') }}
+        </a>
+        <a href="{{ url('/') }}/measurments/add">
+        {{ __('menu.add') }} {{ __('menu.measurments') }}
         </a>
         <hr>
         <ul class="navbar-nav ms-auto">

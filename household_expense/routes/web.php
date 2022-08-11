@@ -25,3 +25,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/services', [App\Http\Controllers\ServicesController::class, 'showUserRelatedServices']);
 Route::get('/services/add', [App\Http\Controllers\ServicesController::class, 'showServiceAdditionFrom']);
 Route::post('/services', [App\Http\Controllers\ServicesController::class, 'checkAndSaveNewUserRelatedServices']);
+
+
+Route::get('/measurers', [App\Http\Controllers\MeasurerController::class, 'showUserRelatedMeasurers']);
+Route::post('/measurers', [App\Http\Controllers\MeasurerController::class, 'checkAndSaveNewUserRelatedMesaurers']);
+Route::get('/measurers/add', [App\Http\Controllers\MeasurerController::class, 'showMeasurerAdditionFrom']);
+
+
+Route::get('/measurments', [App\Http\Controllers\MeasurmentController::class, 'showUserRelatedMeasurements']);
+Route::post('/measurments', [App\Http\Controllers\MeasurmentController::class, 'checkAndSaveNewUserRelatedMeasurments']);
+Route::get('/measurments/add', [App\Http\Controllers\MeasurmentController::class, 'showMeasurmentsAdditionFrom']);
