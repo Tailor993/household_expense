@@ -11,6 +11,7 @@ class ServicesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('VerifyCsrfToken');
     }
 
     public function showUserRelatedServices()
@@ -24,7 +25,7 @@ class ServicesController extends Controller
     }
 
     public function checkAndSaveNewUserRelatedServices(Request $request){
-        //dd( $request );
+        
         if( 
             ServicesController::ParameterExsistAndLengthValid( $request->post('name_of_service') )
             && ServicesController::ParameterExsistAndLengthValid( $request->post('price_per_unit_type') )
