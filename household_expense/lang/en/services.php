@@ -18,9 +18,11 @@ return [
     'this_helps_you_to_identify_the_service' => 'This helps you to identify the service',
     'price_per_unit_type' => 'Mesaurment unit price type',
     'have_to_mulitplied_with_measured_unit' => 'Have to multiplied with measured unit',
+    'created_at' => 'Created at',
     'price' => 'Price',
     'USD_M3' => '"USD/m3" or "USD"',
     'examples' => 'Examples: ',
     'example' => 'Example: ',
+    'exsisiting' => 'Exsisting ',
 
 ];

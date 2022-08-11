@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('name_of_service');
-            $table->bigInteger('price_per_unit
-            ');
+            $table->bigInteger('price_per_unit');
             $table->string('price_per_unit_type');
             $table->boolean('multiplication_required');
             $table->timestamps();

@@ -13,7 +13,7 @@ class Service extends Model
     protected $primaryKey = 'id';
     public $incrementing  =  true;
     public $timestamps = true;
-    protected $dateFormat = 'YYYY-MM-dd HH:mm:ss';
+    protected $dateFormat = 'Y-m-d H:i:s';
     protected $connection = 'mysql';
 
 }

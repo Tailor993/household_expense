@@ -15,7 +15,8 @@ class ServicesController extends Controller
 
     public function showUserRelatedServices()
     {
-        return view('services.showUserRelatedServices');
+        $services = Service::all();
+        return view('services.showUserRelatedServices', ['services' => $services]);
     }
 
     public function showServiceAdditionFrom(){
@@ -42,6 +43,8 @@ class ServicesController extends Controller
             }
         
             $service->save();
+
+            return view('services.showUserRelatedServices');
 
         }else{
             return view('services.showServiceAdditionFrom');
