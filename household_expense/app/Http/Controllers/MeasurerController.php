@@ -16,7 +16,9 @@ class MeasurerController extends Controller
     public function showUserRelatedMeasurers(){
         
         $measurers = [];
-        $measurers = Measurer::where('user_id', Auth::id())->get();
+        $measurers = Measurer::where('user_id',Auth::id())->get();
+
+
         
         return view('mesaurer.showUserRelatedMeasurers', ['measurers' => $measurers]);
     }

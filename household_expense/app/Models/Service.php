@@ -16,4 +16,8 @@ class Service extends Model
     protected $dateFormat = 'Y-m-d H:i:s';
     protected $connection = 'mysql';
 
+    public function user()
+    {
+          return $this->belongsTo( User::class);
+    }
 }

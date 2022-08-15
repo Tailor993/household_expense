@@ -17,16 +17,11 @@ class MeasurmentController extends Controller
 
     public function showUserRelatedMeasurements(){
         
-
         $measurers = [];
-        $measurers = Measurer::where('user_id', Auth::id())->get();
 
-        $measurments = [];
-        foreach($measurers as $measurer){
-            $measurments[] = Measurment::where('measurer_id',$measurer->id)->get();
-        }
-        
-        return view('measurements.showUserRelatedMeasurments', ['measurments' => $measurments, 'measurers' => $measurers]);
+        $measurers = Measurer::where('user_id', Auth::id())->get();
+     
+        return view('measurements.showUserRelatedMeasurments', [ 'measurers' => $measurers]);
     }
 
     public function showMeasurmentsAdditionFrom(){

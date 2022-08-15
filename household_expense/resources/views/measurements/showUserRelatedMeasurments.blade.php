@@ -22,17 +22,19 @@
                             </tr>
                             <tr>
                                 <th>ID</th>
-                                <th>{{ __('measurments.measurer_id') }}</th>
-                                <th>{{ __('measurments.consumed') }}</th>
+                                <th>{{ __('measurers.name_of_measurer') }}</th>
+                                <th>{{ __('measurments.consumed') }} ( {{__('measurers.unit_of_measure')}} )</th>
                                 <th>{{ __('services.created_at') }}</th>
                             </tr>
-                            @foreach($measurments as $measurment)
-                                <tr>
-                                    <td>  {{ $measurment->id }} </td>
-                                    <td>  {{ $measurment->measurer_id }} </td>
-                                    <td>  {{ $measurment->consumed }} </td>
-                                    <td>  {{ $measurment->created_at }} </td>
-                                </tr>
+                            @foreach($measurers as $measurer)
+                                @foreach($measurer->measurments as $measurment)
+                                    <tr>
+                                        <td>  {{ $measurment->id }} </td>
+                                        <td>  {{ $measurer->name_of_measurer }} </td>
+                                        <td>  {{ $measurment->consumed }} ( {{$measurer->unit_of_measure}} ) </td>
+                                        <td>  {{ $measurment->created_at }} </td>
+                                    </tr>
+                                @endforeach
                             @endforeach
                         </table>
                     </div>

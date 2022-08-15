@@ -16,4 +16,10 @@ class Measurment extends Model
     protected $dateFormat = 'Y-m-d H:i:s';
     protected $connection = 'mysql';
 
+    public function measurer()
+    {
+          return $this->belongsTo( Measurer::class);
+    }
+
+
 }
